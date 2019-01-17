@@ -25,7 +25,7 @@ class SelectPlayer extends Component {
   //On change of player selection stores state of player object, and passes object to playerSelect function in Parent Board
   handleChange(e){
     let {id, name, value} = e.target
-    //console.log("in player select.. ", id, name, value);
+    console.log(e.target, "in player select.. ", id, name, value);
     if(id === "X"){
       this.setState({ player1: {id: id, name: name, value: value} });
       this.props.selectPlayer({id: id, name: name, value: value});
@@ -41,7 +41,7 @@ class SelectPlayer extends Component {
   // On change stores AI state, and sends values to aiStatus function in Parent Board
   handleAI(e){
     let { value } = e.target;
-    //console.log(value);
+    console.log(e.target, "in handleAi", value);
     //Returns true or false to aiStatus in boardJS
     if(value !== ""){
       if(value === "On"){
@@ -62,17 +62,12 @@ class SelectPlayer extends Component {
         player2: {id: null, name: null, value: null},
         p1Hidden: false,
         p2Hidden: false,
-        //aiHidden: false
     });
   }
 
   // resets state for AI selection
   resetAI(){
     this.setState({
-        // player1: {id: null, name: null, value: null},
-        // player2: {id: null, name: null, value: null},
-        // p1Hidden: false,
-        // p2Hidden: false,
         aiHidden: false
     });
   }
@@ -140,23 +135,3 @@ class SelectPlayer extends Component {
 }
 
 export default SelectPlayer;
-
-//<input type="submit" value="Select" /> onSubmit={this.selectPlayer1.bind(this)}
-//<input type="submit" value="Select" /> onSubmit={this.selectPlayer2.bind(this)}
-
-
-  // selectPlayer1(e){
-  //   e.preventDefault();
-  //   if(this.state.player1.value){
-  //     this.props.selectPlayer(this.state.player1);
-  //     this.setState({p1Hidden: !this.state.p1Hidden});
-  //   }
-  // }
-  //
-  // selectPlayer2(e){
-  //   e.preventDefault();
-  //   if(this.state.player2.value){
-  //     this.props.selectPlayer(this.state.player2);
-  //     this.setState({p2Hidden: !this.state.p2Hidden})
-  //   }
-  // }

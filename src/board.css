@@ -38,5 +38,8 @@ input {
 }
 
 .icons {
-  width: 55%;
+  width: 50%;
+  /* height: 50%; */
+  max-width: 80%;
+  max-height: 90%;
 }

@@ -58,9 +58,8 @@ class Board extends Component {
   aiMove(i){
     let { squares, player1, player2, ai } = this.state;
     let move = aiMove(squares, player1.icon, player2.icon, i, ai.firstMove);
+    console.log("in AI move...", move);
     if(!calculateWinner(squares)){
-      // squares[move] = player2.icon;
-      // this.setState({ squares: squares, ai: {on: true, firstMove: false }, is1stPlayer: true });
       setTimeout(() => {
         squares[move] = player2.icon;
         this.state.effects[2].play()
@@ -94,7 +93,6 @@ class Board extends Component {
     let { squares, player1, player2, is1stPlayer } = this.state;
     //Declare status, winner, and isArrFull.
     let status = "Select your side";
-    //let sound = this.state.sounds[0];
     const winner = calculateWinner(squares);
     const arrFull = isArrFull(squares);
     // if both players have been selected... check status.
@@ -187,9 +185,3 @@ class Board extends Component {
 }
 
 export default Board;
-
-// let move = aiMove(squares, player1.icon, player2.icon, i, ai.firstMove);
-// squares[move] = player2.icon;
-// if(!calculateWinner(squares)){
-//   this.setState({ squares: squares, ai: {on: true, firstMove: false }, is1stPlayer: true });
-// }
